@@ -1,6 +1,7 @@
-use rand::random_range;
+use rand;
 use std::cmp::Ordering;
 use std::io;
+use rand::Rng;
 
 fn main() {
     println!("Welcome to the Guessing Game!");
@@ -8,7 +9,7 @@ fn main() {
     let max = 100;
 
     println!("Guess a number between {min} and {max}!");
-    let secret_number = random_range(min..=max);
+    let secret_number = rand::thread_rng().gen_range(min..=max);
 
     loop {
         println!("Please input your guess.");
